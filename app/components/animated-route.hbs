@@ -1,0 +1,9 @@
+<AnimatedValue
+  @value={{this.router.currentRouteName}}
+  @initialInsertion={{true}}
+  @finalRemoval={{true}}
+  @use={{this.transition}}
+  @duration={{600}}
+>
+  {{yield}}
+</AnimatedValue>

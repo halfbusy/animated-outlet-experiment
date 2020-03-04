@@ -1,14 +1,10 @@
-import Controller from "@ember/controller";
+import Component from "@glimmer/component";
 import { action } from "@ember/object";
-
+import { inject as service } from "@ember/service";
 import opacity from "ember-animated/motions/opacity";
 
-export default class ModelChangeRouteController extends Controller {
-  get color() {
-    const color = 200 / this.model.id;
-    return `background-color:rgb(255,${color},255);`;
-  }
-
+export default class AnimatedRouteComponent extends Component {
+  @service router;
   @action
   *transition({ duration, insertedSprites, removedSprites, receivedSprites }) {
     yield;
