@@ -1,5 +1,25 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
+<LinkTo @route="persitant-route.a">
+  persitant-route.a
+</LinkTo>
+<LinkTo @route="persitant-route.b">
+  persitant-route.b
+</LinkTo>
+<LinkTo @route="persitant-route.c" @model="1">
+  persitant-route.c/1
+</LinkTo>
+<LinkTo @route="persitant-route.c" @model="2">
+  persitant-route.c/2
+</LinkTo>
+<LinkTo @route="persitant-route.c" @model="3">
+  persitant-route.c/3
+</LinkTo>
+<LinkTo @route="model-change-route" @model="1">
+  model-change-route/1
+</LinkTo>
+<LinkTo @route="model-change-route" @model="2">
+  model-change-route/2
+</LinkTo>
+<LinkTo @route="model-change-route" @model="3">
+  model-change-route/3
+</LinkTo>
 {{outlet}}

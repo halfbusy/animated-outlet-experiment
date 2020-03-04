@@ -1,10 +1,16 @@
-'use strict';
+"use strict";
 
-const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const EmberApp = require("ember-cli/lib/broccoli/ember-app");
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
+    sourcemaps: {
+      enabled: true
+    },
+    babel: {
+      sourceMaps: "inline" //required for sourcemaps to work in VSCode. If using Chrome only, you can remove for faster build times.
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated
