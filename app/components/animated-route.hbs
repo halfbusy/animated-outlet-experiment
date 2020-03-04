@@ -1,9 +1,9 @@
 <AnimatedValue
-  @value={{this.router.currentRouteName}}
+  @value={{this.valueHash}}
   @initialInsertion={{true}}
   @finalRemoval={{true}}
   @use={{this.transition}}
-  @duration={{600}}
+  @duration={{600}} as |valueHash|
 >
-  {{yield}}
+  {{yield valueHash}}
 </AnimatedValue>

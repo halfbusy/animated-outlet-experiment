@@ -1,17 +1,13 @@
 <h1>
   Model Change Route
 </h1>
-<AnimatedRoute>
-  <AnimatedValue
-    @value={{this.model.id}}
-    @initialInsertion={{false}}
-    @finalRemoval={{true}}
-    @use={{this.transition}}
-    @duration={{600}} as |foo|
+<AnimatedRoute @model={{hash model=this.model color=this.color}} as |valueHash|>
+  <div
+    style={{html-safe
+      (concat valueHash.model.color "width:100vw;text-align: center;margin:auto;padding:100px 0 100px 0;")
+    }}
   >
-    <div style={{html-safe (concat this.color "width:100vw;text-align: center;margin:auto;padding:100px 0 100px 0;")}}>
-      ModelID:
-      {{foo}}
-    </div>
-  </AnimatedValue>
+    ModelID:
+    {{valueHash.model.model.id}}
+  </div>
 </AnimatedRoute>

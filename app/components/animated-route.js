@@ -25,4 +25,11 @@ export default class AnimatedRouteComponent extends Component {
       opacity(sprite, { from: 1, to: 0, duration: duration });
     });
   }
+
+  get valueHash() {
+    return {
+      model: this.args.model,
+      route: this.router.currentRouteName
+    };
+  }
 }
