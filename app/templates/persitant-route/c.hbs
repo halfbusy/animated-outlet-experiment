@@ -1,6 +1,9 @@
-<AnimatedRoute>
-  <div style={{html-safe (concat this.color "width:100vw;text-align: center;margin:auto;padding:100px 0 100px 0;")}}>
+<AnimatedOutlet @value={{hash model=this.model color=this.color}} as |outlet|>
+  <div
+    style={{html-safe (concat outlet.value.color "width:100vw;text-align: center;margin:auto;padding:100px 0 100px 0;")
+    }}
+  >
     ModelID:
-    {{@model.id}}
+    {{outlet.value.model.id}}
   </div>
-</AnimatedRoute>
+</AnimatedOutlet>

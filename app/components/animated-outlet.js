@@ -3,7 +3,7 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import opacity from "ember-animated/motions/opacity";
 
-export default class AnimatedRouteComponent extends Component {
+export default class AnimatedOutletComponent extends Component {
   @service router;
   @action
   *transition({ duration, insertedSprites, removedSprites, receivedSprites }) {
@@ -26,9 +26,9 @@ export default class AnimatedRouteComponent extends Component {
     });
   }
 
-  get valueHash() {
+  get valueAndRouteHash() {
     return {
-      model: this.args.model,
+      value: this.args.value,
       route: this.router.currentRouteName
     };
   }

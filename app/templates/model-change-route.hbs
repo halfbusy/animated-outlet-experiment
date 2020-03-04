@@ -1,13 +1,12 @@
 <h1>
   Model Change Route
 </h1>
-<AnimatedRoute @model={{hash model=this.model color=this.color}} as |valueHash|>
+<AnimatedOutlet @value={{hash model=this.model color=this.color}} as |outlet|>
   <div
-    style={{html-safe
-      (concat valueHash.model.color "width:100vw;text-align: center;margin:auto;padding:100px 0 100px 0;")
+    style={{html-safe (concat outlet.value.color "width:100vw;text-align: center;margin:auto;padding:100px 0 100px 0;")
     }}
   >
     ModelID:
-    {{valueHash.model.model.id}}
+    {{outlet.value.model.id}}
   </div>
-</AnimatedRoute>
+</AnimatedOutlet>
