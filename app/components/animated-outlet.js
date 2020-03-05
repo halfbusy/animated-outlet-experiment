@@ -50,4 +50,11 @@ export default class AnimatedOutletComponent extends Component {
       url: this.router.currentURL
     };
   }
+
+  get initialInsertion() {
+    //do not animate on first page load
+    if (this.routerHistory.history.length > 1) return true;
+
+    return false;
+  }
 }
