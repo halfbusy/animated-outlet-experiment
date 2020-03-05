@@ -46,7 +46,8 @@ export default class AnimatedOutletComponent extends Component {
   get valueAndRouteHash() {
     return {
       value: this.args.value,
-      route: this.router.currentURL
+      route: this.router.currentRouteName,
+      url: this.router.currentURL
     };
   }
 }
