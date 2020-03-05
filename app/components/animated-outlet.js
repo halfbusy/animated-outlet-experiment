@@ -5,10 +5,13 @@ import opacity from "ember-animated/motions/opacity";
 
 export default class AnimatedOutletComponent extends Component {
   @service router;
+  @service routerHistory;
+
   @action
   *transition({ duration, insertedSprites, removedSprites, receivedSprites }) {
     yield;
 
+    console.log("direction", this.routerHistory.direction);
     console.log("insertedSprites", insertedSprites.length);
     console.log("removedSprites", removedSprites.length);
     console.log("receivedSprites", receivedSprites.length);
