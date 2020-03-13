@@ -3,12 +3,18 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import move from "ember-animated/motions/move";
 import { easeOut, easeIn } from "ember-animated/easings/cosine";
+import fade from "ember-animated/transitions/fade";
+
 export default class AnimatedOutletComponent extends Component {
   @service router;
   @service routerHistory;
 
+  get transition() {
+    return this.args.transition ? this[this.args.transition] : this.moveOver;
+  }
+  fade = fade;
   @action
-  *transition({ duration, insertedSprites, removedSprites, receivedSprites }) {
+  *moveOver({ duration, insertedSprites, removedSprites, receivedSprites }) {
     yield;
 
     console.log("direction", this.routerHistory.direction);
@@ -44,17 +50,33 @@ export default class AnimatedOutletComponent extends Component {
   }
 
   get valueAndRouteHash() {
+    console.log(
+      "this.router.currentRouteName",
+      this.router.currentRouteName,
+      this.router.currentRoute.parent.name
+    );
     return {
       value: this.args.value,
       route: this.router.currentRouteName,
+      parent: this.router.currentRoute.parent.name,
       url: this.router.currentURL
     };
   }
 
+  get key() {
+    return this.args.key ? this.args.key : "url";
+  }
+
   get initialInsertion() {
+    if (this.args.initialInsertion === false) return false;
+
     //do not animate on first page load
     if (this.routerHistory.history.length > 1) return true;
 
     return false;
+  }
+
+  get duration() {
+    return this.args.duration ? this.args.duration : 600;
   }
 }

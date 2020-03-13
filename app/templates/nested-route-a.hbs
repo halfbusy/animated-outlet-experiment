@@ -1,0 +1,16 @@
+<h1>
+  Nested Route A
+</h1>
+<AnimatedOutlet @key="parent">
+  <div style="height:60vh;background-color:violet;">
+    <h1 style="margin:0;padding:0;">
+      Parent A : Route Template
+    </h1>
+    {{! POSITION:RELATIVE is important here }}
+    <div
+      style="margin:5rem auto 5rem auto;width:10rem;height:5rem;position:relative;"
+    >
+      {{outlet}}
+    </div>
+  </div>
+</AnimatedOutlet>
