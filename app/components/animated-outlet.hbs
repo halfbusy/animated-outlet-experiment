@@ -1,9 +1,10 @@
 <AnimatedValue
   @value={{this.valueAndRouteHash}}
-  @initialInsertion={{true}}
+  @initialInsertion={{this.initialInsertion}}
+  @key={{this.key}}
   @finalRemoval={{true}}
   @use={{this.transition}}
-  @duration={{600}} as |valueAndRouteHash|
+  @duration={{this.duration}} as |valueAndRouteHash|
 >
   {{yield valueAndRouteHash}}
 </AnimatedValue>

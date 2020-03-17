@@ -13,4 +13,12 @@ Router.map(function() {
     this.route("c", { path: "/:c_id" });
   });
   this.route("model-change-route", { path: "/:model_id" });
+  this.route('nested-route-a', function() {
+    this.route('child-2');
+    this.route('child-1');
+  });
+  this.route('nested-route-b', function() {
+    this.route('child-1');
+    this.route('child-2');
+  });
 });

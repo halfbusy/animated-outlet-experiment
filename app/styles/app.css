@@ -1,3 +1,7 @@
 .animated-tools {
   top: 4rem;
 }
+
+.disable-ember-animated-hidden.ember-animated-hidden {
+  visibility: visible !important;
+}
